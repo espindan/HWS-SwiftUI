@@ -13,10 +13,12 @@ struct ContentView: View {
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"]
     @State private var correctAnswer = Int.random(in: 0...2)
     @State private var showingScore = false
+    @State private var showingGameCompleted = false
     @State private var scoreTitle = ""
     @State private var score = 0
+    @State var questionNumber = 0
+    private let maxNumberOfQuestions = 8
     
-
     var body: some View {
         ZStack {
             RadialGradient(stops: [
@@ -39,7 +41,7 @@ struct ContentView: View {
                         Text("Tap the flag of")
                             .font(.subheadline.weight(.heavy))
                             .foregroundStyle(.secondary)
-
+                        
                         Text(countries[correctAnswer])
                             .font(.largeTitle.weight(.semibold))
                     }
@@ -62,12 +64,15 @@ struct ContentView: View {
             .padding()
             
         }.ignoresSafeArea()
-        .alert(scoreTitle, isPresented: $showingScore) {
-            //(<#T##title: StringProtocol##StringProtocol#>, role: <#T##ButtonRole?#>, action: <#T##() -> Void#>)
-            Button("Continue", action: askQuestion)
-        } message: {
-            //if sco
-            Text("Your score is \(score)")
+            .alert(scoreTitle, isPresented: $showingScore) {
+                Button("Continue", action: askQuestion)
+            } message: {
+                Text("Your score is \(score)")
+            }
+        .alert("Game completed",isPresented: $showingGameCompleted){
+            Button("Try again?",action: resetValues)
+        }message: {
+            Text("Your final score is : \(score)")
         }
     }
     
@@ -76,18 +81,28 @@ struct ContentView: View {
             scoreTitle = "Correct"
             score+=1
         } else {
-            scoreTitle = "Wrong"
+            scoreTitle = "Wrong! That’s the flag of \(countries[number])"
             if score > 0{
                 score-=1
             }
         }
-        
-        showingScore = true
+        questionNumber+=1
+        if questionNumber < maxNumberOfQuestions {
+            showingScore = true
+        }else{
+            showingGameCompleted = true
+        }
     }
     
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+    }
+    
+    func resetValues(){
+        askQuestion()
+        questionNumber = 0
+        score = 0
     }
 }
 
