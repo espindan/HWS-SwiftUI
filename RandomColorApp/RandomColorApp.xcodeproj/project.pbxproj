@@ -14,6 +14,7 @@
 		595D71B329AAB7E000A20EAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 595D71B229AAB7E000A20EAC /* Assets.xcassets */; };
 		595D71B629AAB7E000A20EAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 595D71B429AAB7E000A20EAC /* LaunchScreen.storyboard */; };
 		595D71BE29AAB8C300A20EAC /* ColorDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595D71BD29AAB8C300A20EAC /* ColorDetailsVC.swift */; };
+		595D71C029AD5CB700A20EAC /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595D71BF29AD5CB700A20EAC /* UIColor+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		595D71B529AAB7E000A20EAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		595D71B729AAB7E000A20EAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		595D71BD29AAB8C300A20EAC /* ColorDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDetailsVC.swift; sourceTree = "<group>"; };
+		595D71BF29AD5CB700A20EAC /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				595D71B229AAB7E000A20EAC /* Assets.xcassets */,
 				595D71B429AAB7E000A20EAC /* LaunchScreen.storyboard */,
 				595D71B729AAB7E000A20EAC /* Info.plist */,
+				595D71BF29AD5CB700A20EAC /* UIColor+Ext.swift */,
 			);
 			path = RandomColorApp;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			files = (
 				595D71AE29AAB7DF00A20EAC /* ColorSelectorVC.swift in Sources */,
 				595D71BE29AAB8C300A20EAC /* ColorDetailsVC.swift in Sources */,
+				595D71C029AD5CB700A20EAC /* UIColor+Ext.swift in Sources */,
 				595D71AA29AAB7DF00A20EAC /* AppDelegate.swift in Sources */,
 				595D71AC29AAB7DF00A20EAC /* SceneDelegate.swift in Sources */,
 			);

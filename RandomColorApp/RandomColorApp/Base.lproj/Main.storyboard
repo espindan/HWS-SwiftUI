@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="91" width="390" height="719"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="colorCell" id="6OF-Yi-0Nv">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="colorCell" id="6OF-Yi-0Nv">
                                         <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6OF-Yi-0Nv" id="KLD-hp-SFP">
@@ -62,10 +62,25 @@
                     <view key="view" contentMode="scaleToFill" id="hmG-kf-wG8">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O3U-fe-P3Q">
+                                <rect key="frame" x="0.0" y="101" width="390" height="719"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="h9R-14-alG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="O3U-fe-P3Q" firstAttribute="top" secondItem="h9R-14-alG" secondAttribute="top" id="5S5-ym-KMu"/>
+                            <constraint firstItem="O3U-fe-P3Q" firstAttribute="leading" secondItem="h9R-14-alG" secondAttribute="leading" id="ZYF-rd-Ofg"/>
+                            <constraint firstItem="h9R-14-alG" firstAttribute="trailing" secondItem="O3U-fe-P3Q" secondAttribute="trailing" id="gkL-cg-7Db"/>
+                            <constraint firstItem="h9R-14-alG" firstAttribute="bottom" secondItem="O3U-fe-P3Q" secondAttribute="bottom" id="vMi-JW-OwS"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uLN-Sb-Nzd"/>
+                    <connections>
+                        <outlet property="colorContainer" destination="O3U-fe-P3Q" id="glG-bd-ueN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S7c-qv-9gA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
