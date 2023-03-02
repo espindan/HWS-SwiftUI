@@ -29,8 +29,8 @@ struct ContentView: View {
             VStack{
                 Spacer()
                 Text("Guess the Flag")
-                    .font(.largeTitle.bold())
-                    .foregroundColor(.white)
+                   // .foregroundColor(.white)
+                    .makeLargeTitles()
                 Spacer()
                 Text("Score: \(score)")
                     .foregroundColor(.white)
@@ -49,10 +49,7 @@ struct ContentView: View {
                         Button {
                             flagTapped(number)
                         } label: {
-                            Image(countries[number])
-                                .renderingMode(.original)// modifier tells SwiftUI to render the original image pixels rather than trying to recolor them as a button
-                                .clipShape(Capsule())
-                                .shadow(radius: 5)
+                            FlagImage(country: countries[number])
                         }
                     }
                 }
@@ -69,11 +66,11 @@ struct ContentView: View {
             } message: {
                 Text("Your score is \(score)")
             }
-        .alert("Game completed",isPresented: $showingGameCompleted){
-            Button("Try again?",action: resetValues)
-        }message: {
-            Text("Your final score is : \(score)")
-        }
+            .alert("Game completed",isPresented: $showingGameCompleted){
+                Button("Try again?",action: resetValues)
+            }message: {
+                Text("Your final score is : \(score)")
+            }
     }
     
     func flagTapped(_ number: Int) {
@@ -103,6 +100,33 @@ struct ContentView: View {
         askQuestion()
         questionNumber = 0
         score = 0
+    }
+}
+
+struct FlagImage : View {
+    var country: String
+    
+    var body: some View {
+         Image(country)
+            .renderingMode(.original)// modifier tells SwiftUI to render the original image pixels rather than trying to recolor them as a button
+            .clipShape(Capsule())
+            .shadow(radius: 5)
+       }
+}
+
+struct prominentTitles: ViewModifier{
+   
+
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle.bold())
+            .foregroundColor(.blue)
+    }
+}
+
+extension View{
+    func makeLargeTitles() -> some View {
+        modifier(prominentTitles())
     }
 }
 
